@@ -25,7 +25,7 @@ public class Auto1Test extends Hooks {
         $x("//h2[contains(text(),'Tops')]").shouldBe(Condition.visible);
         List<SelenideElement> listProducts = $$x("//div[@class='product-container']");
         listProducts.get(0).hover();
-        // Ищем внутренний элемент кнопку добавить в корнзину на первом элементе списка.
+        // Ищем внутренний элемент кнопку добавить в корнзину на первом элементе списка.//
         listProducts.get(0).$x(".//a[@title='Add to cart']").click();
     }
 }
