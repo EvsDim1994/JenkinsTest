@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selenide.$x;
 public class Auto1Test extends Hooks {
 
     @Test
-    public void test1(){
+    public void test1() throws InterruptedException {
         Selenide.open("http://automationpractice.com/index.php");
         Selenide.webdriver().driver().getWebDriver().manage().window().maximize();
         List<SelenideElement> list = $$x("//div[@id='block_top_menu']/ul/li/a");
@@ -27,7 +27,5 @@ public class Auto1Test extends Hooks {
         listProducts.get(0).hover();
         // Ищем внутренний элемент кнопку добавить в корнзину на первом элементе списка.
         listProducts.get(0).$x(".//a[@title='Add to cart']").click();
-        $x("//div[@id='layer_cart']").shouldBe(Condition.visible);
-
     }
 }
