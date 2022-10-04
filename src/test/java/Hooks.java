@@ -3,6 +3,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Hooks {
 
@@ -10,6 +11,9 @@ public class Hooks {
 
         @BeforeEach
         public void tearDown() {
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
             System.out.println("Запуск теста");
             Configuration.reportsFolder = "ScreenShots";
             Configuration.timeout = 20000;
