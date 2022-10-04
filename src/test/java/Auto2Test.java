@@ -17,7 +17,6 @@ public class Auto2Test extends Hooks {
 
     @Test
     public void test2() {
-        System.setProperty("webdriver.chrome.whitelistedIps", "");
         Selenide.open("http://automationpractice.com/index.php");
         Selenide.webdriver().driver().getWebDriver().manage().window().maximize();
         List<SelenideElement> list1 = $$x("//div[@id='block_top_menu']/ul/li/a");
