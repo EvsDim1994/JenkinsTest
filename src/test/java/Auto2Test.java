@@ -1,8 +1,12 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.List;
 
@@ -17,8 +21,15 @@ public class Auto2Test extends Hooks {
 
     @Test
     public void test2() {
-        Selenide.open("http://automationpractice.com/index.php");
-        Selenide.webdriver().driver().getWebDriver().manage().window().maximize();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--headless");
+        System.out.println("Запуск теста");
+        WebDriver webDriver = new ChromeDriver();
+        webDriver.manage().window().maximize();
+        WebDriverRunner.setWebDriver(webDriver);
+        webDriver.get("http://automationpractice.com/index.php");
         List<SelenideElement> list1 = $$x("//div[@id='block_top_menu']/ul/li/a");
         // Клик по первому элементу списка
         list1.get(0).click();
