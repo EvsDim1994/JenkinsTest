@@ -15,6 +15,7 @@ public class Auto1Test extends Hooks {
 
     @Test
     public void test1() throws InterruptedException {
+        System.setProperty("webdriver.chrome.whitelistedIps", "");
         Selenide.open("http://automationpractice.com/index.php");
         Selenide.webdriver().driver().getWebDriver().manage().window().maximize();
         List<SelenideElement> list = $$x("//div[@id='block_top_menu']/ul/li/a");
