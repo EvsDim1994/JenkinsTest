@@ -1,9 +1,5 @@
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.WebDriverRunner;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
+import com.codeborne.selenide.*;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -15,8 +11,23 @@ import static com.codeborne.selenide.Selenide.$x;
 
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class Auto1Test extends Hooks {
+public class Auto1Test {
 
+    @BeforeEach
+    public void tearDown() {
+        Configuration.reportsFolder = "ScreenShots";
+        Configuration.timeout = 20000;
+    }
+
+    @AfterEach
+    public void doAfter() {
+        Selenide.closeWebDriver();
+        System.out.println("Тест пройден");
+    }
+    @BeforeAll
+    public void doBeforeAll() {
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+    }
     @Test
     public void test1() throws InterruptedException {
         ChromeOptions options = new ChromeOptions();
@@ -25,8 +36,8 @@ public class Auto1Test extends Hooks {
         options.addArguments("--headless");
         System.out.println("Запуск теста");
         WebDriver webDriver = new ChromeDriver();
-        webDriver.manage().window().maximize();
         WebDriverRunner.setWebDriver(webDriver);
+        webDriver.manage().window().maximize();
         webDriver.get("http://automationpractice.com/index.php");
         List<SelenideElement> list = $$x("//div[@id='block_top_menu']/ul/li/a");
         // Клик по первому элементу списка

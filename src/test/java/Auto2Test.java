@@ -1,9 +1,5 @@
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.WebDriverRunner;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
+import com.codeborne.selenide.*;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -15,9 +11,23 @@ import static com.codeborne.selenide.Selenide.$x;
 
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class Auto2Test extends Hooks {
+public class Auto2Test {
 
+    @BeforeEach
+    public void tearDown() {
+        Configuration.reportsFolder = "ScreenShots";
+        Configuration.timeout = 20000;
+    }
 
+    @AfterEach
+    public void doAfter() {
+        Selenide.closeWebDriver();
+        System.out.println("Тест пройден");
+    }
+    @BeforeAll
+    public void doBeforeAll() {
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+    }
 
     @Test
     public void test2() {
