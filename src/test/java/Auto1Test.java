@@ -30,7 +30,7 @@ public class Auto1Test {
 
 
     @Test
-    @Parameter(names = {"auto1"})
+    @Parameter(names = "auto1")
     public void test1() throws InterruptedException {
         System.out.println("Запуск теста");
         Selenide.open("http://automationpractice.com/index.php");
