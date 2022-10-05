@@ -24,10 +24,6 @@ public class Auto1Test {
         Selenide.closeWebDriver();
         System.out.println("Тест пройден");
     }
-    @BeforeAll
-    public void doBeforeAll() {
-        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-    }
     @Test
     public void test1() throws InterruptedException {
         ChromeOptions options = new ChromeOptions();
@@ -35,10 +31,7 @@ public class Auto1Test {
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--headless");
         System.out.println("Запуск теста");
-        WebDriver webDriver = new ChromeDriver();
-        WebDriverRunner.setWebDriver(webDriver);
-        webDriver.manage().window().maximize();
-        webDriver.get("http://automationpractice.com/index.php");
+        Selenide.open("http://automationpractice.com/index.php");
         List<SelenideElement> list = $$x("//div[@id='block_top_menu']/ul/li/a");
         // Клик по первому элементу списка
         list.get(0).click();
