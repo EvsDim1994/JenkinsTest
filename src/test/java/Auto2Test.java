@@ -1,3 +1,4 @@
+import com.beust.jcommander.Parameter;
 import com.codeborne.selenide.*;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
@@ -26,6 +27,7 @@ public class Auto2Test {
 
     }
     @Test
+    @Parameter(names = {"auto2"})
     public void test2() {
         System.out.println("Запуск теста");
         Selenide.open("http://automationpractice.com/index.php");

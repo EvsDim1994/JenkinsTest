@@ -1,3 +1,5 @@
+import com.beust.jcommander.Parameter;
+import com.beust.jcommander.Parameters;
 import com.codeborne.selenide.*;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
@@ -25,7 +27,10 @@ public class Auto1Test {
         Selenide.closeWebDriver();
 
     }
+
+
     @Test
+    @Parameter(names = {"auto1"})
     public void test1() throws InterruptedException {
         System.out.println("Запуск теста");
         Selenide.open("http://automationpractice.com/index.php");
