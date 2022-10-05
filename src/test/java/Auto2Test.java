@@ -26,10 +26,6 @@ public class Auto2Test {
     }
     @Test
     public void test2() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--headless");
         System.out.println("Запуск теста");
         Selenide.open("http://automationpractice.com/index.php");
         List<SelenideElement> list1 = $$x("//div[@id='block_top_menu']/ul/li/a");
