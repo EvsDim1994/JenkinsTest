@@ -21,8 +21,9 @@ public class Auto1Test {
 
     @AfterEach
     public void doAfter() {
-        Selenide.closeWebDriver();
         System.out.println("Тест пройден");
+        Selenide.closeWebDriver();
+
     }
     @Test
     public void test1() throws InterruptedException {
