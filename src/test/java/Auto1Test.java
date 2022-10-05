@@ -30,8 +30,8 @@ public class Auto1Test {
 
 
     @Test
-    @Parameter(names = "auto1")
     public void test1() throws InterruptedException {
+        String paramValue = System.getProperty("AUTO1");
         System.out.println("Запуск теста");
         Selenide.open("http://automationpractice.com/index.php");
         List<SelenideElement> list = $$x("//div[@id='block_top_menu']/ul/li/a");

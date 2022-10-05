@@ -27,8 +27,8 @@ public class Auto2Test {
 
     }
     @Test
-    @Parameter(names = "auto2")
     public void test2() {
+        String paramValue = System.getProperty("AUTO2");
         System.out.println("Запуск теста");
         Selenide.open("http://automationpractice.com/index.php");
         List<SelenideElement> list1 = $$x("//div[@id='block_top_menu']/ul/li/a");
