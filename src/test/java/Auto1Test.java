@@ -26,8 +26,6 @@ public class Auto1Test {
     }
     @Test
     public void test1() throws InterruptedException {
-        ChromeOptions options = new ChromeOptions();
-        options.setHeadless(true);
         System.out.println("Запуск теста");
         Selenide.open("http://automationpractice.com/index.php");
         List<SelenideElement> list = $$x("//div[@id='block_top_menu']/ul/li/a");
