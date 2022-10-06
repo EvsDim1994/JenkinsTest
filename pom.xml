@@ -39,7 +39,11 @@
                 <version>2.22.0</version>
                 <configuration>
                     <systemProperties>
+                        <property>
+
                      <name>AUTO2</name>
+
+                        </property>
                     </systemProperties>
                 </configuration>
             </plugin>
