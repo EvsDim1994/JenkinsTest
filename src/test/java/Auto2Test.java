@@ -1,4 +1,5 @@
 import com.beust.jcommander.Parameter;
+import com.beust.jcommander.Parameters;
 import com.codeborne.selenide.*;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
@@ -28,7 +29,7 @@ public class Auto2Test {
     }
     @Test
     public void test2() {
-        System.getProperty("test.auto2");
+        System.getProperty("AUTO2");
         System.out.println("Запуск теста");
         Selenide.open("http://automationpractice.com/index.php");
         List<SelenideElement> list1 = $$x("//div[@id='block_top_menu']/ul/li/a");

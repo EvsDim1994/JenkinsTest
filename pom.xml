@@ -38,9 +38,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.0</version>
                 <configuration>
-                    <systemPropertyVariables>
-                        <test.auto2>AUTO2</test.auto2>
-                    </systemPropertyVariables>
+                    <systemProperties>
+                     <name>AUTO2</name>
+                    </systemProperties>
                 </configuration>
             </plugin>
         </plugins>
