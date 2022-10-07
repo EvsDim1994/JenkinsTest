@@ -25,7 +25,6 @@ public class Auto2Test {
     public void doAfter() {
         System.out.println("Тест пройден");
         Selenide.closeWebDriver();
-
     }
     @Test
     public void test2() {
