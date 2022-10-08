@@ -28,7 +28,6 @@ public class Auto2Test {
     }
     @Test
     public void test2() {
-        String env = System.getenv("AUTO2");
         System.out.println("Запуск теста");
         Selenide.open("http://automationpractice.com/index.php");
         List<SelenideElement> list1 = $$x("//div[@id='block_top_menu']/ul/li/a");
